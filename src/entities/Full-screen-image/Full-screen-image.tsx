@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import React from "react";
+import React, { ReactElement } from "react";
 import { createPortal } from "react-dom";
 import { ImageRequest } from "shared/api/types";
 
@@ -15,7 +15,7 @@ const BackGround = styled(Box)`
 	height: 100vh;
 	width: 100vw;
 	z-index: 1001;
-	background-color: #434343;
+	background-color: #2929298a;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -23,12 +23,13 @@ const BackGround = styled(Box)`
 
 const StyledImg = styled.img`
 	max-width: 90vw;
-	max-height: 90vh;
+	max-height: 80vh;
 	object-fit: "contain";
 `;
 
 type FullImageScreen = {
 	changeStatusModal: (b: boolean) => void;
+	children: ReactElement;
 };
 
 export const FullScreenImage = ({
@@ -36,7 +37,7 @@ export const FullScreenImage = ({
 	artist_name,
 	source_url,
 	url,
-	changeStatusModal,
+	changeStatusModal,children
 }: ImageRequest & FullImageScreen) => {
 	const data = { artist_href, artist_name, source_url, url };
 	const refModal = React.useRef<HTMLDivElement>();
@@ -52,6 +53,7 @@ export const FullScreenImage = ({
 				<BackGround onClick={handleClick}>
 					<StyledModal ref={refModal}>
 						<StyledImg src={url} alt={artist_name} />
+						<div>{children}</div>
 					</StyledModal>
 				</BackGround>,
 				document.body
