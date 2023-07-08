@@ -1,8 +1,8 @@
 import { ImageListItem } from "@mui/material";
-import React from "react";
+
 import { ImageRequest } from "shared/api/types";
 
-export const Image = ({ artist_href, artist_name, source_url, url }: ImageRequest) => {
+export const Image = ({ artist_name, url }: ImageRequest) => {
 	return (
 		<ImageListItem>
 			<img

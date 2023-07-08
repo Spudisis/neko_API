@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 type ContainerType = {
 	children: ReactElement;

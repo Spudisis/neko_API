@@ -1,7 +1,7 @@
 import { SelectCategory, SelectCategoriesPictures, SelectCategoriesGifs, SelectCountGalleryItem } from "features";
 
 import { CATEGORY } from "shared/config/category-config";
-import { Button, Container, Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 
 type SearchBar = {
 	selectType: string;

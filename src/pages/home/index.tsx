@@ -10,7 +10,7 @@ export const Home = () => {
 	const [selectType, setSelectType] = React.useState(CATEGORY[1].value);
 	const [countGet, setCountGet] = React.useState(COUNT_ITEM[1].value);
 	const [selectedCategory, setSelectedCategory] = React.useState(CATEGORIES_IMAGES[0].value);
-	const { data, refetch, isSuccess } = useQuery({
+	const { data, refetch } = useQuery({
 		queryKey: ["gallery", selectType, selectedCategory, countGet],
 		queryFn: () => getPic(selectedCategory, countGet),
 		retry: 3,

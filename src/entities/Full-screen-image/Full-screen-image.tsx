@@ -33,13 +33,11 @@ type FullImageScreen = {
 };
 
 export const FullScreenImage = ({
-	artist_href,
 	artist_name,
-	source_url,
 	url,
-	changeStatusModal,children
+	changeStatusModal,
+	children,
 }: ImageRequest & FullImageScreen) => {
-	const data = { artist_href, artist_name, source_url, url };
 	const refModal = React.useRef<HTMLDivElement>();
 	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (refModal.current && !refModal.current.contains(e.target as Node)) {
