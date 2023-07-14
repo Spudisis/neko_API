@@ -19,15 +19,13 @@ export const SelectCategoriesGifs = ({ onChange }: CategoriesProps) => {
 	}, [value]);
 
 	return (
-		<div>
-			<SimpleSelect
-				nameSelect="Categories gif"
-				label="Categories gif"
-				value={value}
-				handleChange={handleChange}
-				list={CATEGORY_GIFS}
-				propsStyled={{ width: "200px" }}
-			/>
-		</div>
+		<SimpleSelect
+			nameSelect="Categories gif"
+			label="Categories gif"
+			value={value}
+			handleChange={handleChange}
+			list={CATEGORY_GIFS}
+			propsStyled={{ width: "200px" }}
+		/>
 	);
 };

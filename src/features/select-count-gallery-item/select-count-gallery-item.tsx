@@ -17,9 +17,5 @@ export const SelectCountGalleryItem = ({ onChange }: CategoriesProps) => {
 		onChange(value);
 	}, [value]);
 
-	return (
-		<div>
-			<SimpleSelect nameSelect="Type" label="Type" value={value} handleChange={handleChange} list={COUNT_ITEM} />
-		</div>
-	);
+	return <SimpleSelect nameSelect="Type" label="Type" value={value} handleChange={handleChange} list={COUNT_ITEM} />;
 };

@@ -18,15 +18,13 @@ export const SelectCategory = ({ onChange }: CategoriesProps) => {
 	}, [value]);
 
 	return (
-		<div>
-			<SimpleSelect
-				nameSelect="Type"
-				label="Type"
-				value={value}
-				handleChange={handleChange}
-				list={CATEGORY}
-				propsStyled={{ width: "100px" }}
-			/>
-		</div>
+		<SimpleSelect
+			nameSelect="Type"
+			label="Type"
+			value={value}
+			handleChange={handleChange}
+			list={CATEGORY}
+			propsStyled={{ width: "100px" }}
+		/>
 	);
 };
