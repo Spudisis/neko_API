@@ -17,6 +17,10 @@ type PropsStyled = {
 const StyledFormControl = styled(FormControl)((props: PropsStyled) => ({
 	width: props.width || "auto",
 	backgroundColor: props.backgroundColor || "inherit",
+	"@media screen and (max-width:600px)": {
+		marginBottom: "10px",
+		width: "100%",
+	},
 }));
 
 export const SimpleSelect = ({ value, nameSelect, label, handleChange, list, propsStyled }: SimpleSelect) => {

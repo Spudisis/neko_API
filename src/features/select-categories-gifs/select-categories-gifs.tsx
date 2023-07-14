@@ -6,17 +6,13 @@ import { CATEGORY_GIFS } from "shared/config/category-config";
 
 type CategoriesProps = {
 	onChange: (s: string) => void;
+	value: string;
 };
 
-export const SelectCategoriesGifs = ({ onChange }: CategoriesProps) => {
-	const [value, setValue] = React.useState(CATEGORY_GIFS[0].value);
+export const SelectCategoriesGifs = ({ onChange, value }: CategoriesProps) => {
 	const handleChange = (e: SelectChangeEvent<any>) => {
-		setValue(e.target.value);
+		onChange(e.target.value);
 	};
-
-	React.useEffect(() => {
-		onChange(value);
-	}, [value]);
 
 	return (
 		<SimpleSelect

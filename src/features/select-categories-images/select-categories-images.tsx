@@ -1,22 +1,19 @@
 import { SimpleSelect } from "shared/index";
 
 import { SelectChangeEvent } from "@mui/material";
-import React from "react";
+
 import { CATEGORIES_IMAGES } from "shared/config/category-config";
+import React from "react";
 
 type CategoriesProps = {
 	onChange: (s: string) => void;
+	value: string;
 };
 
-export const SelectCategoriesPictures = ({ onChange }: CategoriesProps) => {
-	const [value, setValue] = React.useState(CATEGORIES_IMAGES[1].value);
+export const SelectCategoriesPictures = ({ onChange, value }: CategoriesProps) => {
 	const handleChange = (e: SelectChangeEvent<any>) => {
-		setValue(e.target.value);
+		onChange(e.target.value);
 	};
-
-	React.useEffect(() => {
-		onChange(value);
-	}, [value]);
 
 	return (
 		<SimpleSelect

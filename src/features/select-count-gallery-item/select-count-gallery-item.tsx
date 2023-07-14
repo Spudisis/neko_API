@@ -1,21 +1,16 @@
 import { SelectChangeEvent } from "@mui/material";
-import React from "react";
 import { COUNT_ITEM } from "shared/config/category-config";
 import { SimpleSelect } from "shared/index";
 
 type CategoriesProps = {
 	onChange: (s: string) => void;
+	value: string;
 };
 
-export const SelectCountGalleryItem = ({ onChange }: CategoriesProps) => {
-	const [value, setValue] = React.useState(COUNT_ITEM[1].value);
+export const SelectCountGalleryItem = ({ onChange, value }: CategoriesProps) => {
 	const handleChange = (e: SelectChangeEvent<any>) => {
-		setValue(e.target.value);
+		onChange(e.target.value);
 	};
 
-	React.useEffect(() => {
-		onChange(value);
-	}, [value]);
-
-	return <SimpleSelect nameSelect="Type" label="Type" value={value} handleChange={handleChange} list={COUNT_ITEM} />;
+	return <SimpleSelect nameSelect="Count" label="Count" value={value} handleChange={handleChange} list={COUNT_ITEM} />;
 };

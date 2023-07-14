@@ -1,27 +1,30 @@
 import { Container, ImageList, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { CATEGORIES_IMAGES, CATEGORY, COUNT_ITEM } from "shared/config/category-config";
+import { CATEGORIES_IMAGES, CATEGORY, CATEGORY_GIFS, COUNT_ITEM } from "shared/config/category-config";
 import { SearchBarApp } from "widgets";
 import { getPic } from "./api/getPic";
 import { ImageListItem } from "features/index";
 
 export const Home = () => {
-	const [selectType, setSelectType] = React.useState(CATEGORY[1].value);
+	const [selectType, setSelectType] = React.useState(CATEGORY[0].value);
 	const [countGet, setCountGet] = React.useState(COUNT_ITEM[1].value);
-	const [selectedCategory, setSelectedCategory] = React.useState(CATEGORIES_IMAGES[0].value);
+	const [selectedCategory, setSelectedCategory] = React.useState(CATEGORIES_IMAGES[2].value);
 	const { data, refetch } = useQuery({
 		queryKey: ["gallery", selectType, selectedCategory, countGet],
 		queryFn: () => getPic(selectedCategory, countGet),
 		retry: 3,
 		refetchOnWindowFocus: false,
 	});
+
 	return (
 		<Container>
 			<SearchBarApp
 				selectType={selectType}
 				setSelectType={setSelectType}
+				countGet={countGet}
 				setCountGet={setCountGet}
+				selectedCategory={selectedCategory}
 				setSelectedCategory={setSelectedCategory}
 				refetch={refetch}
 			/>
